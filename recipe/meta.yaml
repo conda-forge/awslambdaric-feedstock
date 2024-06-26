@@ -10,7 +10,6 @@ source:
     sha256: 16bc3147fed0c079d108f21ca9ca5b5348ac49044b7bf9f806a36d9a7f410fa9
   # Please see awslabs/aws-lambda-cpp#94, remove once aws-lambda-cpp is upgraded to 0.2.7
     patches:
-      - relax-simplejson.patch
       - aws-lambda-cpp-0.2.6-update-backward-cpp.patch
   - url: https://raw.githubusercontent.com/bombela/backward-cpp/v1.6/backward.hpp
     sha256: 404aa26ecc36be08f92c03b05505561e064f6f1f7cffcbda77a7d4959e4c07f2
@@ -40,7 +39,7 @@ requirements:
     - python
   run:
     - python
-    - simplejson >=3.17.2,<3.18
+    - simplejson >=3.18.4
 
 test:
   imports:
