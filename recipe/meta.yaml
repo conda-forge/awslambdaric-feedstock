@@ -1,5 +1,5 @@
 {% set name = "awslambdaric" %}
-{% set version = "2.0.12" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/awslambdaric-{{ version }}.tar.gz
-    sha256: 16bc3147fed0c079d108f21ca9ca5b5348ac49044b7bf9f806a36d9a7f410fa9
+    sha256: d51a0a99d820c1952506412ad7253846ce837bc3f0ce003c1e686172d61a7fad
   # Please see awslabs/aws-lambda-cpp#94, remove once aws-lambda-cpp is upgraded to 0.2.7
     patches:
       - aws-lambda-cpp-0.2.6-update-backward-cpp.patch
