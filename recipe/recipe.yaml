@@ -1,0 +1,67 @@
+context:
+  name: awslambdaric
+  version: '3.1.1'
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  - url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/awslambdaric-${{ version }}.tar.gz
+    sha256: 5a11cd06dc29459bf3b9da570af612fcf4dca1060bcfd2b78c36c835a37ae5c1
+  # Please see awslabs/aws-lambda-cpp#94, remove once aws-lambda-cpp is upgraded to 0.2.7
+    # patches:
+    #   - aws-lambda-cpp-0.2.6-update-backward-cpp.patch
+  # - url: https://raw.githubusercontent.com/bombela/backward-cpp/v1.6/backward.hpp
+  #   sha256: 404aa26ecc36be08f92c03b05505561e064f6f1f7cffcbda77a7d4959e4c07f2
+  #   folder: deps/patches
+  #   fn: backward.h
+
+build:
+  script: ${{ PYTHON }} -m pip install . -vv
+  number: 0
+
+requirements:
+  build:
+    - if: linux
+      then:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - automake
+        - autoconf
+        - cmake
+        - libtool
+        - make
+        - pkg-config
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+  host:
+    - pip
+    - python
+  run:
+    - python
+    - simplejson >=3.20.1
+    - snapshot-restore-py >=1.0.0
+
+tests:
+  - python:
+      imports:
+        - awslambdaric
+      pip_check: true
+
+about:
+  homepage: https://github.com/aws/aws-lambda-python-runtime-interface-client
+  summary: AWS Lambda Runtime Interface Client for Python
+  license: BSD-3-Clause AND Apache-2.0
+  license_file:
+    - LICENSE
+    - THIRD-PARTY-LICENSES
+
+extra:
+  recipe-maintainers:
+    - raybellwaves
+    - sodre
+    - '0xbe7a'
+    - pavelzw
