@@ -7,8 +7,8 @@ package:
   version: ${{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/awslambdaric-${{ version }}.tar.gz
-    sha256: 5a11cd06dc29459bf3b9da570af612fcf4dca1060bcfd2b78c36c835a37ae5c1
+  - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/awslambdaric-${{ version }}.tar.gz
+    sha256: 1c1fd30570b9a2c5cc4ccd2151c883312c5eef2dbf759c8e9d29c18cec6de2e8
   # Please see awslabs/aws-lambda-cpp#94, remove once aws-lambda-cpp is upgraded to 0.2.7
     # patches:
     #   - aws-lambda-cpp-0.2.6-update-backward-cpp.patch
