@@ -1,6 +1,6 @@
 context:
   name: awslambdaric
-  version: '3.1.1'
+  version: "4.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/awslambdaric-${{ version }}.tar.gz
-    sha256: 1c1fd30570b9a2c5cc4ccd2151c883312c5eef2dbf759c8e9d29c18cec6de2e8
+    sha256: 779d0721e60239233aec572fe336d147d1c3c4e405f7e56be7548b4dfececb35
   # Please see awslabs/aws-lambda-cpp#94, remove once aws-lambda-cpp is upgraded to 0.2.7
     patches:
       - if: linux
@@ -23,7 +23,7 @@ source:
 
 build:
   script: ${{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
