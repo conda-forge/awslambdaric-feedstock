@@ -14,6 +14,10 @@ source:
       - if: linux
         then:
           - aws-lambda-cpp-0.2.6-update-backward-cpp.patch
+          # The vendored curl build auto-detects optional dependencies from the
+          # build environment (e.g. libpsl), whose headers are not available in
+          # the host environment, which breaks the build.
+          - curl-7.83.1-disable-optional-deps.patch
   - if: linux
     then:
       - url: https://raw.githubusercontent.com/bombela/backward-cpp/v1.6/backward.hpp

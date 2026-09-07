@@ -1,0 +1,20 @@
+diff --git a/scripts/preinstall.sh b/scripts/preinstall.sh
+index a54140a..b41d4f9 100755
+--- a/scripts/preinstall.sh
++++ b/scripts/preinstall.sh
+@@ -39,7 +39,14 @@ else
+                 --with-pic \
+                 --without-zlib \
+                 --without-ngtcp2 \
+-                --without-nghttp3 && \
++                --without-nghttp3 \
++                --without-libpsl \
++                --without-zstd \
++                --without-brotli \
++                --without-libidn2 \
++                --without-nghttp2 \
++                --without-libssh2 \
++                --without-gssapi && \
+             make && \
+             make install
+     )
