@@ -27,7 +27,7 @@ source:
 
 build:
   script: ${{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -41,7 +41,7 @@ requirements:
         - cmake
         - libtool
         - make
-        - pkg-config
+        - pkgconf
     - if: build_platform != target_platform
       then:
         - python
